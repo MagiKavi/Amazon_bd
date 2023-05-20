@@ -1,6 +1,5 @@
 package Stepdefinition;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import com.beust.ah.A;
 
 import Baseclass.Baseclass;
-import Com.Helper.ConfigurationReader;
 import PageObjectManager.PageObjectManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -92,13 +90,10 @@ public class Steps extends Baseclass {
 		obj.getProductpage().clickButton2.click();
 	}
 	   
-	@Then("User Enter Random Email and Phone Number")
-	public void user_enter_random_email_and_phone_number() throws InterruptedException, IOException {
-	    
-	
-
+	@Then("User Enter Random Email\"magesh.nomercy@gmail.com\" and Phone Number")
+	public void user_enter_random_email_magesh_nomercy_gmail_com_and_phone_number() throws InterruptedException {
 		Thread.sleep(2000);
-		obj.getProductpage().Email.sendKeys(ConfigurationReader.FileReaderManager().getEmail());
+		obj.getProductpage().Email.sendKeys("magesh.nomercy@gmail.com");
 		obj.getProductpage().clickButton3.click();
 	}
 

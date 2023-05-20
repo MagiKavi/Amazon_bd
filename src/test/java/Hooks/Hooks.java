@@ -11,15 +11,14 @@ import io.cucumber.java.Scenario;
 public class Hooks extends Baseclass{
 
 	@Before
-	public  static void BeforeHooks() {          //it will run before and after the scenario
+	public  void BeforeHooks() {          //it will run before and after the scenario
 System.out.println("Am before Hooks");
 	}
 	
 	@After
-	public static void AfterHooks(Scenario scenario) {
+	public void AfterHooks(Scenario scenario) {
              byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-   scenario.attach(screenshot, "image/png", "Magesh_FlipkartS");
-   
+   scenario.attach(screenshot, "image/png", "screenshot");
    driver.quit();
 	}
 }

@@ -4,7 +4,6 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +14,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -23,32 +21,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class Baseclass {
 	public static WebDriver driver;
-	
-	
 
 	 public static WebDriver BrowserLaunch(String BrowserName) {
 		 if (BrowserName.equalsIgnoreCase("chrome")) {
-			 
-			 WebDriverManager.chromedriver().setup();
-			 ChromeOptions chrome = new ChromeOptions();
-			 chrome.addArguments("start-maximized");
-		     chrome.addArguments("incognito");
-		    
-			 driver = new ChromeDriver(chrome);
-
-		     
+			System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resource\\driver\\chromedriver.exe");
+			driver = new ChromeDriver();
 		  }else if (BrowserName.equalsIgnoreCase("edge")) {
-			  
-			  WebDriverManager.edgedriver().setup();
-			//System.setProperty("webdriver.edge.driver", "");
+			System.setProperty("webdriver.edge.driver", "");
 			driver = new EdgeDriver();
 		  }else if (BrowserName.equalsIgnoreCase("firefox")) {
-			  WebDriverManager.firefoxdriver();
-			//System.setProperty("webdriver.geko.driver", "");
+			System.setProperty("webdriver.geko.driver", "");
 		  }
 		   driver.manage().window().maximize();
 		   driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

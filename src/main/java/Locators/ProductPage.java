@@ -11,8 +11,6 @@ import Baseclass.Baseclass;
 
 public class ProductPage extends Baseclass {
 
-	// Have To Collect All The  WebElement  Present in WebPage  Store it  a Seprate  Class And Make it the private
-
 	private WebDriver driver;
 
 	public ProductPage(WebDriver driver) {
